@@ -316,6 +316,7 @@ body {
     background: url(../images/768divice.png) no-repeat 0px 0px;
     width: 200px;
     height: 436px;
+    display: none;
   }
   .header-right {
     float: none;
@@ -379,6 +380,7 @@ body {
     background: url(../images/sdivice.png) no-repeat 0px 0px;
     width: 120px;
     height: 261px;
+    display: none;
   }
   .header-right {
     float: none;
