@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!--Title of Website-->
-		<title>TAMS CSO Website</title>
-		<!--Description of site-->
-		<meta name="description" content="CSO-Computer Science Organization">
-		<meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
-		<!--Loading Bootstrap-->
-		<link href="bootstrap.min.css" rel="stylesheet">
-		<!--Loading FlatUI-->
-		<link rel="stylesheet" type="text/css" href="flat-ui.css">
-		<link rel="stylesheet" type="text/css" href="flat-ui.min.css">
-		<!--Loading Custom JS and CSS-->
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<script type="text/javascript" src="script.js"></script>
-
-	</head>
-	<body>
-	<div class="row demo-row">
+  <head>
+    <!--Title of Website-->
+    <title>TAMS CSO Website</title>
+    <!--Description of site-->
+    <meta name="description" content="CSO-Computer Science Organization">
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+    <!--Loading Bootstrap-->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!--Loading FlatUI-->
+    <link rel="stylesheet" type="text/css" href="flat-ui.css">
+    <link rel="stylesheet" type="text/css" href="flat-ui.min.css">
+    <script type="text/javascript" src="flat-ui/dist/flat-ui.js"></script>
+    <script type="text/javascript" src="flat-ui/dist/flat-ui.js"></script>    
+    <!--Loading JQuery-->
+    <script src="jquery.min.js"></script>
+    <!--Application.js-->
+    <script src="application.js"></script>
+    <!--Loading Responsive-->
+    <script src="respond.min.js"></script>
+    <!--Loading Custom JS and CSS-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+    <script src="flat-ui/dist/js/vendor/jquery.min.js"></script>
+    <script src="flat-ui/dist/js/flat-ui.min.js"></script>
+    <script src="flat-ui/docs/assets/js/application.js"></script>
+  </head>
+  <body>
+      <div class="row demo-row">
         <div class="col-xs-12">
           <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-01">
                 <span class="sr-only">Toggle navigation</span>
               </button>
-              <a class="navbar-brand" href="#">Flat UI</a>
+              <a class="navbar-brand" href="#">CSO</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <div class="navbar-collapse collapse" id="navbar-collapse-01" style="height: 2px;">
               <ul class="nav navbar-nav navbar-left">
-                <li><a href="#fakelink">Menu Item<span class="navbar-unread">1</span></a></li>
+                <li><a href="#fakelink">Notifications<span class="navbar-unread">1</span></a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Information <b class="caret"></b></a>
                   <span class="dropdown-arrow"></span>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">GA's</a></li>
+                    <li><a href="#">Upcoming Events</a></li>
+                    <li><a href="#">Learn Code!</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Separated link</a></li>
                   </ul>
                 </li>
-                <li><a href="#fakelink">About Us</a></li>
+                <li><a href="#fakelink">The Execs</a></li>
                </ul>
                <form class="navbar-form navbar-right" action="#" role="search">
                 <div class="form-group">
@@ -54,7 +64,6 @@
               </form>
             </div><!-- /.navbar-collapse -->
           </nav><!-- /navbar -->
-        </div>
-      </div>
-	</body>
+        </div></div>
+  </body>
 </html>
