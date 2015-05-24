@@ -13,12 +13,11 @@
   <body>
     <style>
       body {
-        min-height: 2000px;
         padding-top: 70px;
       }
     </style>
 
-    <!-- Static navbar -->
+    <!-- Fixed navbar: means it won't move when you scroll up or down :) -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -48,57 +47,115 @@
           </ul>
         </div><!--/.nav-collapse -->
       </div></div>
+    <!-- Where Navbar ends============================================== -->
+
+
+    <!-- This is our CSO Logo all of these divs are used to make it in the center -->
     <header>
-    <!-- LOGO -->
     <div class="text-center logo">
       <div class="row-fluid">
         <div class="span12">
                   <h1>
-            <a href="#">
-                            <img src="https://scontent-dfw1-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/11150739_10207049064451610_7564854223164415890_n.jpg?oh=d9a2a3fb8701c66fc6d0642d6571efac&oe=55F96E62" alt="Flat UI Design Trends" class="logo_dot" width="300" height="120" scale="0">
-            </a>
+              <!--link of the cso logo picture -->
+             <img src="http://i.imgur.com/2jKL8eF.gif" alt="Flat UI Design Trends" class="logo_dot" width="300" height="120" scale="0">
           </h1>
           <div id="social-like-buttons" class="sharing-main">
           </div>        
         </div>
       </div>
     </div>
-    <!-- // LOGO --></header>
+    </header>
+     <!-- This is where the logo part ends======================================== -->
+
+     <!-- This is just the sentence of what CSO is all about -->
     <div class="blog_bar ">
         <div class="container">
-
-
-            <div class="text-center">
+          <div class="text-center">
                 <h2 class="lead">
-
-                    <span>Welcome to CSO </span>
+                  <!-- Since "welcome to CSO" is not a link, it's not green -->
+                  <span>Welcome to CSO </span>
+                    <!-- Since Join us on Facebook is a link, it's green -->
                     <a href="https://www.facebook.com/groups/763402400439218/" rel="bookmark" title="">Join us on Facebook!<i class="icon-long-arrow-right"></i></a>
                 </h2>
             </div>
-
         </div>
     </div>
+    <!-- Ends the sentence======================================================= -->
 
+    <!-- The main area/center of attention that's why its shaded a little grey -->
     <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>CSO</h1>
-        <p>CSO link</p>
-        <p>cso calander</p>
+        <!-- the header of the section -->
+        <h1>Upcoming Events</h1>
+          <!--Begginning of the Events section! -->
+            <div class="row">
+            <div>
+            <div class="todo">
+              <ul>
+
+              <!-- Event I-->
+               <li class="todo-done">
+                 <div class="todo-icon fui-user"></div> <!-- These logos are imported so we're limited on what logos we can use, this one is the user logo -->
+                  <div class="todo-content">
+                   <h4 class="todo-name">
+                     Event <strong>1</strong> at <strong>6pm</strong> <!--Event Name -->
+                   </h4>
+                  Mac Café <!--Event Location-->
+                </div>
+              </li>
+              <!-- End Event I-->
+
+              <!-- Event II-->
+              <li class="">
+                <div class="todo-icon fui-list"></div> <!-- This is the list logo -->
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Event <strong>2</strong> at <strong>9pm</strong> <!--Event Name-->
+                  </h4>
+                  Sac <!--Event Location-->
+                </div>
+              </li>
+              <!-- End Event II-->
+
+              <!-- Event III-->
+              <li>
+                <div class="todo-icon fui-eye"></div> <!-- This is the eye logo -->
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Event <strong>3</strong> at <strong>11am</strong> <!--Event Name-->
+                  </h4>
+                  Volleyball Pit  <!--Event Location-->
+                </div>
+              </li>
+              <!-- End Event III-->
+
+              <!-- Event IV -->
+              <li>
+                <div class="todo-icon fui-time"></div> <!-- This is the time logo -->
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Event <strong>2</strong> at <strong>6pm</strong> <!--Event Name-->
+                  </h4>
+                  Confrence Room <!--Event Location-->
+                </div>
+               </li>
+               <!-- End Event IV -->
+
+            </ul>
+          </div><!-- end .todo -->
+        </div><!-- end .col-md-4 -->
+      </div>
+      <!-- Button for FB -->
         <p>
-          <a class="btn btn-lg btn-primary" href="https://www.facebook.com/groups/763402400439218/" role="button">Visit FB now! »</a>
+          <a class="btn btn-lg btn-primary" href="https://www.facebook.com/groups/763402400439218/" role="button">Visit FB now for notifications! »</a>
         </p>
       </div>
 
-    </div> <!-- /container -->
+    </div> <!-- end of the shaded grey area -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- all compiled plugins (below), or individual files as needed not at <head> because it won't work-->
     <script src="flat-ui/dist/js/flat-ui.min.js"></script>
-    <script src="flat-ui/docs/assets/js/application.js"></script>
-
-  
-
+    <script src="flat-ui/docs/assets/js/application.js"></script>  
 </body></html>

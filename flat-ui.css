@@ -5581,40 +5581,6 @@ fieldset[disabled] .navbar-inverse .navbar-btn.active {
   border-radius: 0 0 6px 6px;
   padding-bottom: 21px;
 }
-.todo li.todo-done {
-  background: transparent;
-  color: #1abc9c;
-}
-.todo li.todo-done .todo-name {
-  color: #1abc9c;
-}
-.todo li:after {
-  content: " ";
-  display: block;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 50%;
-  right: 22px;
-  margin-top: -10px;
-  background: #ffffff;
-  border-radius: 50%;
-}
-.todo li.todo-done:after {
-  content: "\e60a";
-  font-family: 'Flat-UI-Icons';
-  text-align: center;
-  font-size: 12px;
-  line-height: 21px;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #1abc9c;
-  color: #2c3e50;
-}
 .todo-search {
   position: relative;
   background: #1abc9c;
