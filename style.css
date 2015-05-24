@@ -1,5 +1,5 @@
 body {
-	background-color: #3498db;
+	background-color: #FFFFFF;
 }
 .prettyprint {
   padding: 15px 21px;
@@ -10,6 +10,12 @@ body {
 .pln {
   color: #333;
   }
+
+}
+header {
+  display: block;
+  padding-top: 100px;
+}
 @media screen {
   .str {
     color: #d14;

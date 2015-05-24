@@ -1,69 +1,104 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en"><head>
+    <meta charset="utf-8">
     <!--Title of Website-->
     <title>TAMS CSO Website</title>
     <!--Description of site-->
     <meta name="description" content="CSO-Computer Science Organization">
-    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
-    <!--Loading Bootstrap-->
+    <!--Loading Bootstrap/Responsiveness-->
     <link href="bootstrap.min.css" rel="stylesheet">
-    <!--Loading FlatUI-->
-    <link rel="stylesheet" type="text/css" href="flat-ui.css">
-    <link rel="stylesheet" type="text/css" href="flat-ui.min.css">
-    <script type="text/javascript" src="flat-ui/dist/flat-ui.js"></script>
-    <script type="text/javascript" src="flat-ui/dist/flat-ui.js"></script>    
-    <!--Loading JQuery-->
-    <script src="jquery.min.js"></script>
-    <!--Application.js-->
-    <script src="application.js"></script>
-    <!--Loading Responsive-->
-    <script src="respond.min.js"></script>
-    <!--Loading Custom JS and CSS-->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="script.js"></script>
-    <script src="flat-ui/dist/js/vendor/jquery.min.js"></script>
-    <script src="flat-ui/dist/js/flat-ui.min.js"></script>
-    <script src="flat-ui/docs/assets/js/application.js"></script>
+    <!-- Loading Flat UI -->
+    <link href="flat-ui.css" rel="stylesheet">
   </head>
   <body>
-      <div class="row demo-row">
-        <div class="col-xs-12">
-          <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-01">
-                <span class="sr-only">Toggle navigation</span>
-              </button>
-              <a class="navbar-brand" href="#">CSO</a>
+    <style>
+      body {
+        min-height: 2000px;
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <a class="navbar-brand" href="#">CSO</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">The Execs</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpful Links <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Hackathons</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Algorithms</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div></div>
+    <header>
+    <!-- LOGO -->
+    <div class="text-center logo">
+      <div class="row-fluid">
+        <div class="span12">
+                  <h1>
+            <a href="#">
+                            <img src="#entercsologo" alt="Flat UI Design Trends" class="logo_dot" width="80" height="80" scale="0">
+            </a>
+          </h1>
+          <div id="social-like-buttons" class="sharing-main">
+          </div>        
+        </div>
+      </div>
+    </div>
+    <!-- // LOGO --></header>
+    <div class="blog_bar ">
+        <div class="container">
+
+
+            <div class="text-center">
+                <h2 class="lead">
+
+                    <span>Welcome to CSO </span>
+                    <a href="http://www.facebook.com/tamscso" rel="bookmark" title="">Join us on Facebook!<i class="icon-long-arrow-right"></i></a>
+                </h2>
             </div>
-            <div class="navbar-collapse collapse" id="navbar-collapse-01" style="height: 2px;">
-              <ul class="nav navbar-nav navbar-left">
-                <li><a href="#fakelink">Notifications<span class="navbar-unread">1</span></a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Information <b class="caret"></b></a>
-                  <span class="dropdown-arrow"></span>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">GA's</a></li>
-                    <li><a href="#">Upcoming Events</a></li>
-                    <li><a href="#">Learn Code!</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li>
-                <li><a href="#fakelink">The Execs</a></li>
-               </ul>
-               <form class="navbar-form navbar-right" action="#" role="search">
-                <div class="form-group">
-                  <div class="input-group">
-                    <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
-                    <span class="input-group-btn">
-                      <button type="submit" class="btn"><span class="fui-search"></span></button>
-                    </span>
-                  </div>
-                </div>
-              </form>
-            </div><!-- /.navbar-collapse -->
-          </nav><!-- /navbar -->
-        </div></div>
-  </body>
-</html>
+
+        </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>CSO</h1>
+        <p>CSO link</p>
+        <p>cso calander</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="facebook.com" role="button">Visit FB now! »</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="flat-ui/dist/js/flat-ui.min.js"></script>
+    <script src="flat-ui/docs/assets/js/application.js"></script>
+
+  
+
+</body></html>
