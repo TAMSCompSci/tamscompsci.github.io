@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <!--Title of Website-->
+    <title>TAMS CSO Website</title>
+    <!--Description of site-->
+    <meta name="description" content="CSO-Computer Science Organization">
+    <!--Loading Bootstrap/Responsiveness-->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="flat-ui.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+
+    <!-- from: http://stackoverflow.com/a/25479012 -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#navigation').load('navbar.html');
+        $('#header').load('header.html');
+      });
+    </script>
+  </head>
+  <body>
+    <style>
+      body {
+        padding-top: 70px;
+      }
+    </style>
+
+    <div id="navigation"></div>
+    <div id="header"></div>
+   
+    <!-- all compiled plugins (below), or individual files as needed not at <head> because it won't work-->
+    <script src="flat-ui/dist/js/flat-ui.min.js"></script>
+    <script src="flat-ui/docs/assets/js/application.js"></script>  
+    </body></html>
