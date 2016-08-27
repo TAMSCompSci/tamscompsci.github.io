@@ -29,6 +29,9 @@ var data = {
 	}, {
 		name: specialify("contact"),
 		description: "Contact TAMS Computer Science Organization club executives"
+	}, {
+		name: specialify("facebook"),
+		description: "Go to the CSO Facebook group"
 	}],
 	contact: "Feel free to send us an email (<a href='mailto:TAMSComputerScience@gmail.com'>TAMSComputerScience@gmail.com</a>) or contact a club executive (type <span class='special'>team</span>) individually via Facebook.",
 	team: [{
@@ -141,6 +144,10 @@ $(function() {
 			case "clear":
 			case "cls":
 				jqconsole.Clear();
+				break;
+			case "fb":
+			case "facebook":
+				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016";
 				break;
 			default:
 				return format('invalid');
