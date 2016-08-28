@@ -149,6 +149,8 @@ $(function() {
 			case "facebook":
 				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016";
 				break;
+			case "nimit":
+				return specialify("\n\tHi!\n\n");
 			default:
 				return format('invalid');
 		}
