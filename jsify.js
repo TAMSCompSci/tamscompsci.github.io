@@ -117,6 +117,27 @@ var lambdify = function(format_string) {
 	return function() { return format(format_string) }
 }
 
+var options = {
+  include: ["score"],
+  shouldSort: true,
+  threshold: 0.4,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 32,
+  keys: []
+};
+
+//output contains parameters index & score
+var search = function(list, searchitem) {
+   return new Fuse(list, options).search(searchitem)
+}
+
+//test BEGIN
+var list = ["hello","world","yo","yogurt is really good","veggies are bad for you"]
+console.log(search(list,"yo"))
+
+//test END
+
 $(function() {
 	var intro = "Welcome to the Computer Science Organization (CSO) at TAMS!\nType 'hello' below to learn what we're all about! Try '?' for more.\n\n";
 	var jqconsole = $('#console').jqconsole(intro, 'cso> ');
