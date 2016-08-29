@@ -143,7 +143,7 @@ $(function() {
 	var jqconsole = $('#console').jqconsole(intro, 'cso> ');
 	function process(input) {
 		var parsed = input.split(" ");
-		commands = [
+		var commands = [
 			[["help", "?", "ls"], lambdify('help')],
 			[["hello", "mission", "description", "why"], lambdify('hello')],
 			[["team", "execs", "executives", "officers"], lambdify('team')],
@@ -155,7 +155,7 @@ $(function() {
 			[["fb", "facebook"], function() { window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016" }],
 			[["nimit"], function() { return specialify("\n\nHi!\n\n") }]
 		];
-		response = null;
+		var response = null;
 		commands.forEach(function(key, index, commands) {
 			key[0].forEach(function(term, tindex) {
 				if (term === parsed[0]) {
