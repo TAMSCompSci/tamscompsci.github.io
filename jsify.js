@@ -62,7 +62,7 @@ var data = {
 		name: linkify("Fortify", "http://getfortify.com"),
 		authors: "By Shashank Bhavimane, Thomas Hobohm"
 	}, {
-		name: linkfy("TheOfferPlan", "http://astronomer.io"),
+		name: linkfy("TheOfferPlan", "http://theofferplan.com"),
 		authors: "Julian LaNeve"
 	}, {
 		name: specialify("Cool Project"),
