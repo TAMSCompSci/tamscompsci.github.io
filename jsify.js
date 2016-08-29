@@ -124,19 +124,13 @@ var options = {
   location: 0,
   distance: 100,
   maxPatternLength: 32,
-  keys: []
+  keys: ['command']
 };
 
 //output contains parameters index & score
 var search = function(list, searchitem) {
    return new Fuse(list, options).search(searchitem)
 }
-
-//test BEGIN
-var list = ["hello","world","yo","yogurt is really good","veggies are bad for you"]
-console.log(search(list,"yo"))
-
-//test END
 
 $(function() {
 	var intro = "Welcome to the Computer Science Organization (CSO) at TAMS!\nType 'hello' below to learn what we're all about! Try '?' for more.\n\n";
@@ -166,7 +160,35 @@ $(function() {
 		if (response) {
 			return response;
 		} else {
-			return format('help');
+			var commands_list = [];
+			commands.forEach(function(key, index, commands) {
+				key[0].forEach(function(term, tindex) {
+					commands_list.push({
+						'command': term,
+						'callback': key[1]
+					});
+				})
+			});
+			var results = search(commands_list, parsed[0]);
+			if (results.length > 0) {
+				response = '\nDid you mean ';
+				results.forEach(function(result, index) {
+					if (index === results.length - 1 && results.length == 2) {
+						response = response.substring(0, response.length - 2);
+						response += ' or ' + specialify(result['item']['command']) + ', ';
+					} else if (index === results.length - 1 && results.length > 1) {
+						response = response.substring(0, response.length - 2);
+						response += ', or ' + specialify(result['item']['command']) + ', ';
+					} else {
+						response += specialify(result['item']['command']) + ', ';
+					}
+				});
+				response = response.substring(0, response.length - 2);
+				response += '?\n\n';
+				return response;
+			} else {
+				return format('help');
+			}
 		}
 	};
 
