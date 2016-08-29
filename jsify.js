@@ -113,54 +113,41 @@ var format = function(field) {
 	return "\n" + listify(unformatted) + "\n";
 };
 
+var lambdify = function(format_string) {
+	return function() { return format(format_string) }
+}
+
 $(function() {
 	var intro = "Welcome to the Computer Science Organization (CSO) at TAMS!\nType 'hello' below to learn what we're all about! Try '?' for more.\n\n";
 	var jqconsole = $('#console').jqconsole(intro, 'cso> ');
-
 	function process(input) {
 		var parsed = input.split(" ");
-		switch (parsed[0]) {
-			case "help":
-			case "?":
-			case "ls":
-				return format('help');
-			case "hello":
-			case "mission":
-			case "description":
-			case "why":
-				return format('hello');
-			case "team":
-			case "execs":
-			case "executives":
-			case "officers":
-				return format('team');
-			case "competitions":
-			case "hackathons":
-			case "events":
-				return format('competitions');
-			case "links":
-			case "forms":
-			case "info":
-				return format('links');
-			case "projects":
-			case "showcase":
-				return format('showcase');
-			case "contact":
-				return format('contact');
-			case "clear":
-			case "cls":
-				jqconsole.Clear();
-				break;
-			case "fb":
-			case "facebook":
-				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016";
-				break;
-			case "nimit":
-				return specialify("\n\tHi!\n\n");
-			default:
-				return format('invalid');
+		commands = [
+			[["help", "?", "ls"], lambdify('help')],
+			[["hello", "mission", "description", "why"], lambdify('hello')],
+			[["team", "execs", "executives", "officers"], lambdify('team')],
+			[["competitions", "hackathons", "events"], lambdify('competitions')],
+			[["links", "forms", "info"], lambdify('links')],
+			[["projects", "showcase"], lambdify('showcase')],
+			[["contact"], lambdify('contact')],
+			[["clear", "cls"], function() { jqconsole.Clear() }],
+			[["fb", "facebook"], function() { window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016" }],
+			[["nimit"], function() { return specialify("\n\nHi!\n\n") }]
+		];
+		response = null;
+		commands.forEach(function(key, index, commands) {
+			key[0].forEach(function(term, tindex) {
+				if (term === parsed[0]) {
+					response = key[1]();
+				}
+			});
+		});
+		if (response) {
+			return response;
+		} else {
+			return format('help');
 		}
-	}
+	};
 
 	var startPrompt = function() {
 		jqconsole.Prompt(true, function(input) {
