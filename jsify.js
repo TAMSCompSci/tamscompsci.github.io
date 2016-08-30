@@ -118,17 +118,18 @@ var lambdify = function(format_string) {
 }
 
 var options = {
-  include: ["score"],
-  shouldSort: true,
-  threshold: 0.4,
-  location: 0,
-  distance: 100,
-  maxPatternLength: 32,
-  keys: ['command']
+	include: ["score"],
+	shouldSort: true,
+	threshold: 0.3,
+	location: 0,
+	distance: 100,
+	maxPatternLength: 32,
+	keys: ['command']
 };
 
 var search = function(list, searchitem) {
-   return new Fuse(list, options).search(searchitem)
+	options.distance = (searchitem.length<=2? 0 : 100)
+	return new Fuse(list, options).search(searchitem)
 }
 
 $(function() {
