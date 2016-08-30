@@ -127,7 +127,6 @@ var options = {
   keys: ['command']
 };
 
-//output contains parameters index & score
 var search = function(list, searchitem) {
    return new Fuse(list, options).search(searchitem)
 }
