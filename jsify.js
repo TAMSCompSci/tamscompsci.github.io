@@ -170,7 +170,7 @@ $(function() {
 				})
 			});
 			var results = search(commands_list, parsed[0]);
-			if (results.length > 0 && parsed[0].length > 1) {
+			if (results.length > 0) {
 				response = '\nThat command doesn\'t exist. Did you mean ';
 				results.forEach(function(result, index) {
 					if (index === results.length - 1 && results.length == 2) {
