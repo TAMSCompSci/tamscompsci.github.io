@@ -62,6 +62,12 @@ var data = {
 		name: linkify("Fortify", "http://getfortify.com"),
 		authors: "By Shashank Bhavimane, Thomas Hobohm"
 	}, {
+		name: linkify("Scheme", "http://getsche.me"),
+		authors: "By Thomas Hobohm, Zain Khoja, Leanne Joseph, Michelle Ya"
+	}, {
+		name: linkify("PocketBox", "http://pocketbox.net"),
+		authors: "By Thomas Hobohm"
+	}, {
 		name: specialify("Cool Project"),
 		authors: "By <span class='special'>you</span>? Contact us if you've made a cool project you'd like featured!"
 	}],
@@ -107,54 +113,84 @@ var format = function(field) {
 	return "\n" + listify(unformatted) + "\n";
 };
 
+var lambdify = function(format_string) {
+	return function() { return format(format_string) }
+}
+
+var options = {
+	include: ["score"],
+	shouldSort: true,
+	threshold: 0.3,
+	location: 0,
+	distance: 100,
+	maxPatternLength: 32,
+	keys: ['command']
+};
+
+var search = function(list, searchitem) {
+	options.distance = (searchitem.length<=2? 0 : 100)
+	return new Fuse(list, options).search(searchitem)
+}
+
 $(function() {
 	var intro = "Welcome to the Computer Science Organization (CSO) at TAMS!\nType 'hello' below to learn what we're all about! Try '?' for more.\n\n";
 	var jqconsole = $('#console').jqconsole(intro, 'cso> ');
-
 	function process(input) {
 		var parsed = input.split(" ");
-		switch (parsed[0]) {
-			case "help":
-			case "?":
-			case "ls":
-				return format('help');
-			case "hello":
-			case "mission":
-			case "description":
-			case "why":
-				return format('hello');
-			case "team":
-			case "execs":
-			case "executives":
-			case "officers":
-				return format('team');
-			case "competitions":
-			case "hackathons":
-			case "events":
-				return format('competitions');
-			case "links":
-			case "forms":
-			case "info":
-				return format('links');
-			case "projects":
-			case "showcase":
-				return format('showcase');
-			case "contact":
-				return format('contact');
-			case "clear":
-			case "cls":
-				jqconsole.Clear();
-				break;
-			case "fb":
-			case "facebook":
-				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016";
-				break;
-			case "nimit":
-				return specialify("\n\tHi!\n\n");
-			default:
-				return format('invalid');
+		var commands = [
+			[["help", "?", "ls"], lambdify('help')],
+			[["hello", "mission", "description", "why"], lambdify('hello')],
+			[["team", "execs", "executives", "officers"], lambdify('team')],
+			[["competitions", "hackathons", "events"], lambdify('competitions')],
+			[["links", "forms", "info"], lambdify('links')],
+			[["projects", "showcase"], lambdify('showcase')],
+			[["contact"], lambdify('contact')],
+			[["clear", "cls"], function() { jqconsole.Clear(); return ' '; }],
+			[["fb", "facebook"], function() { window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016"; return ' ' }],
+			[["nimit"], function() { return specialify("\n\nHi!\n\n") }]
+		];
+		var response = null;
+		commands.forEach(function(key, index, commands) {
+			key[0].forEach(function(term, tindex) {
+				if (term === parsed[0]) {
+					response = key[1]();
+				}
+			});
+		});
+		if (response) {
+			return response;
+		} else {
+			var commands_list = [];
+			commands.forEach(function(key, index, commands) {
+				key[0].forEach(function(term, tindex) {
+					commands_list.push({
+						'command': term,
+						'callback': key[1]
+					});
+				})
+			});
+			var results = search(commands_list, parsed[0]);
+			if (results.length > 0 && parsed[0].length > 1) {
+				response = '\nThat command doesn\'t exist. Did you mean ';
+				results.forEach(function(result, index) {
+					if (index === results.length - 1 && results.length == 2) {
+						response = response.substring(0, response.length - 2);
+						response += ' or ' + specialify(result['item']['command']) + ', ';
+					} else if (index === results.length - 1 && results.length > 1) {
+						response = response.substring(0, response.length - 2);
+						response += ', or ' + specialify(result['item']['command']) + ', ';
+					} else {
+						response += specialify(result['item']['command']) + ', ';
+					}
+				});
+				response = response.substring(0, response.length - 2);
+				response += '?\n\n';
+				return response;
+			} else {
+				return '\nThat command doesn\'t exist. Here is a list of commands you can use:\n' + format('help');
+			}
 		}
-	}
+	}	;
 
 	var startPrompt = function() {
 		jqconsole.Prompt(true, function(input) {
