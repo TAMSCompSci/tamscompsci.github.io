@@ -145,8 +145,8 @@ $(function() {
 			[["links", "forms", "info"], lambdify('links')],
 			[["projects", "showcase"], lambdify('showcase')],
 			[["contact"], lambdify('contact')],
-			[["clear", "cls"], function() { jqconsole.Clear() }],
-			[["fb", "facebook"], function() { window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016" }],
+			[["clear", "cls"], function() { jqconsole.Clear(); return ' '; }],
+			[["fb", "facebook"], function() { window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016"; return ' ' }],
 			[["nimit"], function() { return specialify("\n\nHi!\n\n") }]
 		];
 		var response = null;
@@ -190,7 +190,7 @@ $(function() {
 				return format('help');
 			}
 		}
-	};
+	}	;
 
 	var startPrompt = function() {
 		jqconsole.Prompt(true, function(input) {
