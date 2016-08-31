@@ -163,6 +163,9 @@ $(function() {
 				$(document.documentElement).addClass('qt_please');
 				document.documentElement.setAttribute('style', 'transform: rotate(' + String(tilt) + 'deg);');
 				return "\n\n";
+			}],
+			[["thomas"], function() {
+				return "\n\nFuzzy\n\n"
 			}]
 		];
 		var response = null;
