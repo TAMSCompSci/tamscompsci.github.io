@@ -164,10 +164,12 @@ $(function() {
 			var commands_list = [];
 			commands.forEach(function(key, index, commands) {
 				key[0].forEach(function(term, tindex) {
-					commands_list.push({
-						'command': term,
-						'callback': key[1]
-					});
+					if (term !== "qt") {
+						commands_list.push({
+							'command': term,
+							'callback': key[1]
+						});
+					}
 				})
 			});
 			var results = search(commands_list, parsed[0]);
