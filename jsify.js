@@ -1,3 +1,5 @@
+var tilt = 0;
+
 var linkify = function(text, url) {
 	return "<a target='_blank' href='" + url + "'>" + text + "</a>";
 };
@@ -145,10 +147,23 @@ $(function() {
 			[["projects", "showcase"], lambdify('showcase')],
 			[["contact"], lambdify('contact')],
 			[["clear", "cls"], function() { jqconsole.Clear(); return ' '; }],
-			[["fb", "facebook"], function() { window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016"; return ' ' }],
+			[["fb", "facebook"], function() {
+				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016";
+				return ' ';
+			}],
 			[["nimit"], function() { return specialify("\n\nHi!\n\n") }],
-			[["tilt"], function() { document.documentElement.setAttribute('class', 'rotate_please'); return "\n\n"; }],
-			[["qt"], function() { document.documentElement.setAttribute('class', 'qt_please'); return "\n\n";}]
+			[["tilt"], function() {
+				tilt += 7;
+				$(document.documentElement).addClass('rotate_please');
+				document.documentElement.setAttribute('style', 'transform: rotate(' + String(tilt) + 'deg);');
+				return "\n\n";
+			}],
+			[["qt"], function() {
+				tilt += 70;
+				$(document.documentElement).addClass('qt_please');
+				document.documentElement.setAttribute('style', 'transform: rotate(' + String(tilt) + 'deg);');
+				return "\n\n";
+			}]
 		];
 		var response = null;
 		commands.forEach(function(key, index, commands) {
