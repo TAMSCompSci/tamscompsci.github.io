@@ -196,7 +196,7 @@ $(function() {
 			if (input) {
 				jqconsole.Write(process(input), 'jqconsole-output', false);
 			} else {
-				jqconsole.Write(text.notRight, 'jqconsole-output');
+				jqconsole.Write('\n Here is a list of commands:\n' + format('help'), 'jqconsole-output', false);
 			}
 
 			startPrompt();
