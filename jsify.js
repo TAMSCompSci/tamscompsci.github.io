@@ -146,7 +146,9 @@ $(function() {
 			[["contact"], lambdify('contact')],
 			[["clear", "cls"], function() { jqconsole.Clear(); return ' '; }],
 			[["fb", "facebook"], function() { window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016"; return ' ' }],
-			[["nimit"], function() { return specialify("\n\nHi!\n\n") }]
+			[["nimit"], function() { return specialify("\n\nHi!\n\n") }],
+			[["tilt"], function() { document.documentElement.setAttribute('class', 'rotate_please'); return "\n\n"; }],
+			[["qt"], function() { document.documentElement.setAttribute('class', 'qt_please'); return "\n\n";}]
 		];
 		var response = null;
 		commands.forEach(function(key, index, commands) {
@@ -162,10 +164,12 @@ $(function() {
 			var commands_list = [];
 			commands.forEach(function(key, index, commands) {
 				key[0].forEach(function(term, tindex) {
-					commands_list.push({
-						'command': term,
-						'callback': key[1]
-					});
+					if (term !== "qt") {
+						commands_list.push({
+							'command': term,
+							'callback': key[1]
+						});
+					}
 				})
 			});
 			var results = search(commands_list, parsed[0]);
