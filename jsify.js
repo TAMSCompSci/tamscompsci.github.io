@@ -147,7 +147,8 @@ $(function() {
 			[["clear", "cls"], function() { jqconsole.Clear(); return ' '; }],
 			[["fb", "facebook"], function() { window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016"; return ' ' }],
 			[["nimit"], function() { return specialify("\n\nHi!\n\n") }],
-			[["tilt"], function() { document.documentElement.setAttribute('class', 'rotate_please'); return "\n\n"; }]
+			[["tilt"], function() { document.documentElement.setAttribute('class', 'rotate_please'); return "\n\n"; }],
+			[["qt"], function() { document.documentElement.setAttribute('class', 'qt_please'); return "\n\n";}]
 		];
 		var response = null;
 		commands.forEach(function(key, index, commands) {
