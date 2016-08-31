@@ -166,6 +166,10 @@ $(function() {
 			}],
 			[["thomas"], function() {
 				return "\n\nFuzzy\n\n"
+			}],
+			[["exit", "close"], function() {
+				window.location.href = "https://www.google.com";
+				return ' ';
 			}]
 		];
 		var response = null;
