@@ -6,10 +6,10 @@ html, body {
 }
 
 .rotate_please {
-  margin-top: 200px;
-  transform: rotate(15deg);
-  -webkit-transform: rotate(15deg);
-  -moz-transform: rotate(15deg);
+  margin-top: 100px;
+  transform: rotate(7deg);
+  -webkit-transform: rotate(7deg);
+  -moz-transform: rotate(7deg);
 }
 
 /* The console container element */
