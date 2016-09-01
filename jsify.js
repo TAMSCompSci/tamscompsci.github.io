@@ -147,10 +147,10 @@ $(function() {
 			[["links", "forms", "info"], lambdify('links')],
 			[["projects", "showcase"], lambdify('showcase')],
 			[["contact"], lambdify('contact')],
-			[["clear", "cls"], function() { jqconsole.Clear(); return ' '; }],
+			[["clear", "cls"], function() { jqconsole.Clear(); return '\r'; }],
 			[["fb", "facebook"], function() {
 				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016";
-				return ' ';
+				return '\r';
 			}],
 			[["tilt"], function() {
 				tilt += 7;
