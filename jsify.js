@@ -152,18 +152,25 @@ $(function() {
 				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016";
 				return ' ';
 			}],
-			[["nimit"], function() { return specialify("\n\nHi!\n\n") }],
+			[["nimit"], function() { return specialify("\nHi!\n\n") }],
 			[["tilt"], function() {
 				tilt += 7;
 				$(document.documentElement).addClass('rotate_please');
 				document.documentElement.setAttribute('style', 'transform: rotate(' + String(tilt) + 'deg);');
-				return "\n\n";
+				return "\n";
 			}],
 			[["qt"], function() {
 				tilt += 70;
 				$(document.documentElement).addClass('qt_please');
 				document.documentElement.setAttribute('style', 'transform: rotate(' + String(tilt) + 'deg);');
-				return "\n\n";
+				return "\n";
+			}],
+			[["thomas"], function() {
+				return specialify("\nFuzzy\n\n");
+			}],
+			[["exit", "close"], function() {
+				window.location.href = "https://www.google.com";
+				return ' ';
 			}]
 		];
 		var response = null;
@@ -180,7 +187,7 @@ $(function() {
 			var commands_list = [];
 			commands.forEach(function(key, index, commands) {
 				key[0].forEach(function(term, tindex) {
-					if (term !== "qt") {
+					if (term !== "qt" && term !== "thomas" && term !== "nimit") {
 						commands_list.push({
 							'command': term,
 							'callback': key[1]
