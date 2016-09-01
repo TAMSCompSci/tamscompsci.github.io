@@ -165,7 +165,7 @@ $(function() {
 				return "\n";
 			}],
 			[["thomas"], function() {
-				return "\nFuzzy\n\n"
+				return specialify("\nFuzzy\n\n");
 			}],
 			[["exit", "close"], function() {
 				window.location.href = "https://www.google.com";
