@@ -152,7 +152,6 @@ $(function() {
 				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2016";
 				return ' ';
 			}],
-			[["nimit"], function() { return specialify("\n\nHi!\n\n") }],
 			[["tilt"], function() {
 				tilt += 7;
 				$(document.documentElement).addClass('rotate_please');
