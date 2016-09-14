@@ -5,6 +5,14 @@ html, body {
     padding: 0;
 }
 
+.rotate_please {
+  margin-top: 110px;
+}
+
+.qt_please {
+  margin-top: 600px;
+}
+
 /* The console container element */
 
 #console {
