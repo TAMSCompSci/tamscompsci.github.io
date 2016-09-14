@@ -7,7 +7,7 @@ var specialify = function(text) {
 };
 
 var data = {
-	hello: "TAMS Computer Science Organization aims to " + specialify("promote Computer Science") + "\n\tin the TAMS community by providing " + specialify("mentorship") + " to those interested in\n\tfurther pursuing Computer Science and attending " + specialify("competitions") + " ranging\n\tfrom " + specialify("major hackathons") + " to " + specialify("algorithm contests") + ".",
+	hello: "TAMS Computer Science Organization aims to " + specialify("promote Computer Science") + "\n\tin the TAMS community by providing " + specialify("mentorship") + " to those interested in\n\tfurther pursuing the field and attending " + specialify("competitions") + " ranging\n\tfrom " + specialify("major hackathons") + " to " + specialify("algorithm contests") + ".",
 	help: [{
 		name: specialify("help"),
 		description: "Display all commands"
