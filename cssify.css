@@ -35,7 +35,8 @@ html, body {
 
 .jqconsole-cursor {
     color: #eee;
-    position: relative !important;
+    /*position: relative !important;*/
+    opacity: 0.5;
     background-color: white;
 }
 
