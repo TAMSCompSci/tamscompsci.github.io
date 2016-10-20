@@ -1,4 +1,5 @@
 html, body {
+    transition: all 0.5s ease-in-out;
     background-color: #222;
     color: #eee;
     margin: 0;
@@ -35,7 +36,8 @@ html, body {
 
 .jqconsole-cursor {
     color: #eee;
-    position: relative !important;
+    /*position: relative !important;*/
+    opacity: 0.5;
     background-color: white;
 }
 

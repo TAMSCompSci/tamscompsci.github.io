@@ -163,6 +163,13 @@ $(function() {
 				$(document.documentElement).addClass('qt_please');
 				document.documentElement.setAttribute('style', 'transform: rotate(' + String(tilt) + 'deg);');
 				return "\n\n";
+			}],
+			[["untilt"], function() {
+				tilt = 0;
+				$(document.documentElement).removeClass('rotate_please');
+				$(document.documentElement).removeClass('qt_please');
+				document.documentElement.setAttribute('style', 'transform: rotate(' + String(tilt) + 'deg);');
+				return "\n\n";
 			}]
 		];
 		var response = null;
