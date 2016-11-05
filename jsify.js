@@ -170,7 +170,8 @@ $(function() {
 				$(document.documentElement).removeClass('qt_please');
 				document.documentElement.setAttribute('style', 'transform: rotate(' + String(tilt) + 'deg);');
 				return "\n\n";
-			}]
+			}],
+			[["js", "javascript", "code"], function() {}], //since this is processed directly, there is no need for a function here
 		];
 		var response = null;
 		commands.forEach(function(key, index, commands) {
@@ -215,18 +216,59 @@ $(function() {
 				return '\nThat command doesn\'t exist. Here is a list of commands you can use:\n' + format('help');
 			}
 		}
-	}	;
-
-	var startPrompt = function() {
-		jqconsole.Prompt(true, function(input) {
-			if (input) {
-				jqconsole.Write(process(input), 'jqconsole-output', false);
-			} else {
-				jqconsole.Write('\n Here is a list of commands:\n' + format('help'), 'jqconsole-output', false);
-			}
-
+	};
+	var jsmode = false;
+	var blockQuery = false;
+	var block = "";
+	var processJs = function(input){
+		if(input.match(/exit/) || input.match(/process.exit\(/)){
+			jsmode = false;
+			jqconsole.SetPromptLabel("cso> ");
+			jqconsole.Write('\n');
 			startPrompt();
-		});
+			return;
+		}
+		if(!blockQuery){
+			block = "";
+		}
+		block+=input;
+		var leftParens = (block.match(/\{/g)? block.match(/\{/g).length: 0);
+		var rightParens = (block.match(/\}/g)? block.match(/\}/g).length: 0);
+		if(leftParens > rightParens){
+			blockQuery = true;
+			startPrompt();
+			return;
+		}else{
+			blockQuery = false;
+		}
+		try{
+			result = eval('eval')(block); //indirect call so it's global
+		}catch(err){
+			result = err;
+		}
+		jqconsole.Write("     "+result+'\n', 'jqconsole-output', false);
+	}
+	var processQuery = function(input) {
+		if (input) {
+			if(jsmode){
+				processJs(input);
+			}else{
+				if(input == "javascript" || input == "js" || input == "code"){
+					jsmode = true;
+					jqconsole.SetPromptLabel("   > ");
+					jqconsole.Write('\n');
+					startPrompt();
+					return;
+				}
+				jqconsole.Write(process(input),'jqconsole-output',false);
+			}
+		} else {
+			jqconsole.Write('\n Here is a list of commands:\n' + format('help'), 'jqconsole-output', false);
+		}
+		startPrompt();
+	}
+	var startPrompt = function() {
+		jqconsole.Prompt(true, processQuery);
 	};
 
 	startPrompt();
