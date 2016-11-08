@@ -137,6 +137,9 @@ var search = function(list, searchitem) {
 $(function() {
 	var intro = "Welcome to the Computer Science Organization (CSO) at TAMS!\nType 'hello' below to learn what we're all about! Try '?' for more.\n\n";
 	var jqconsole = $('#console').jqconsole(intro, 'cso> ');
+	var cout = function(input){
+		jqconsole.Write("     "+input.replace(/\n/g,'\n     ')+'\n', 'jqconsole-output', false);
+	}
 	function process(input) {
 		var parsed = input.split(" ");
 		var commands = [
@@ -241,27 +244,30 @@ $(function() {
 		}else{
 			blockQuery = false;
 		}
+		var result;
 		try{
 			result = eval('eval')(block); //indirect call so it's global
 		}catch(err){
 			result = err;
 		}
-		jqconsole.Write("     "+result+'\n', 'jqconsole-output', false);
+		result = String(result);
+		cout(result);
 	}
 	var processQuery = function(input) {
+		if(jsmode){
+			processJs(input);
+			startPrompt();
+			return;
+		}
 		if (input) {
-			if(jsmode){
-				processJs(input);
-			}else{
-				if(input == "javascript" || input == "js" || input == "code"){
-					jsmode = true;
-					jqconsole.SetPromptLabel("   > ");
-					jqconsole.Write('\n');
-					startPrompt();
-					return;
-				}
-				jqconsole.Write(process(input),'jqconsole-output',false);
+			if(input == "javascript" || input == "js" || input == "code" || input == "node"){
+				jsmode = true;
+				jqconsole.SetPromptLabel("   > ");
+				jqconsole.Write('\n');
+				startPrompt();
+				return;
 			}
+			jqconsole.Write(process(input),'jqconsole-output',false);
 		} else {
 			jqconsole.Write('\n Here is a list of commands:\n' + format('help'), 'jqconsole-output', false);
 		}
