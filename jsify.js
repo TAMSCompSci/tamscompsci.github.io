@@ -154,7 +154,8 @@ var loadBoard = function() {
 				var spacesToAdd = 55-name.length;
 				name += new Array(spacesToAdd).join(' ');
 				return name + score;
-			}).join('\n')
+			}).join('\n')+
+			"\n\n"+linkify('Click here', 'http://tamscso.ga/board')+" to see the full leaderboard."
 		);
 	})
 }
