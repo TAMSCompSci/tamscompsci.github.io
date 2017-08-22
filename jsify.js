@@ -17,6 +17,9 @@ var data = {
 		name: specialify("hello"),
 		description: "Display introduction message"
 	}, {
+		name: specialify("leaderboard"),
+		description: "See club leaderboard"
+	}, {
 		name: specialify("team"),
 		description: "See the club executives"
 	}, {
@@ -137,6 +140,25 @@ var search = function(list, searchitem) {
 	return new Fuse(list, options).search(searchitem)
 }
 
+var loadBoard = function() {
+	$.get('http://tamscso.ga/board/rest/fetch_users', function(data, status) {
+		var people = JSON.parse(data);
+		$('.board-container').html(
+			specialify("Name" + new Array(55-4).join(' ') + "Score\n")+
+			people.map(function(item) {
+				var name = item.profile.name;
+				var score = item.score;
+				if(name.length > 50){
+					name = name.substring(0, 47) + '...';
+				}
+				var spacesToAdd = 55-name.length;
+				name += new Array(spacesToAdd).join(' ');
+				return name + score;
+			}).join('\n')
+		);
+	})
+}
+
 $(function() {
 	var intro = "Welcome to the Computer Science Organization (CSO) at TAMS!\nType 'hello' below to learn what we're all about! Try '?' for more.\n\n";
 	var jqconsole = $('#console').jqconsole(intro, 'cso> ');
@@ -178,6 +200,11 @@ $(function() {
 				return "\n\n";
 			}],
 			[["js", "javascript", "code"], function() {}], //since this is processed directly, there is no need for a function here
+			[["leaderboard"], function() {
+				jqconsole.Append($('<div class="board-container">Loading...</div>'));
+				loadBoard();
+				return '\n';
+			}]
 		];
 		var response = null;
 		commands.forEach(function(key, index, commands) {
