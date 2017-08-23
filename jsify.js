@@ -145,16 +145,21 @@ var loadBoard = function() {
 		var people = JSON.parse(data);
 		$('.board-container').html(
 			specialify("\n\tName" + new Array(55-4).join(' ') + "Score\n\t")+
-			people.map(function(item) {
-				var name = item.profile.name;
-				var score = item.score;
-				if(name.length > 50){
-					name = name.substring(0, 47) + '...';
-				}
-				var spacesToAdd = 55-name.length;
-				name += new Array(spacesToAdd).join(' ');
-				return name + score;
-			}).join('\n\t')+
+			people
+				.sort(function(a, b) {
+					return b.score - a.score;
+				})
+				.map(function(item) {
+					var name = item.profile.name;
+					var score = item.score;
+					if(name.length > 50){
+						name = name.substring(0, 47) + '...';
+					}
+					var spacesToAdd = 55-name.length;
+					name += new Array(spacesToAdd).join(' ');
+					return name + score;
+				})
+				.join('\n\t')+
 			"\n\n\t"+linkify('Click here', 'http://tamscso.ga/board')+" to see the full leaderboard."
 		);
 	})
