@@ -40,23 +40,17 @@ var data = {
 	}],
 	contact: "Feel free to send us an email (<a href='mailto:TAMSComputerScience@gmail.com'>TAMSComputerScience@gmail.com</a>) or contact a club executive (type <span class='special'>team</span>) individually via Facebook.",
 	team: [{
-		name: specialify("Rick") + " Zhang",
+		name: specialify("Manasi") + " Ramadurgum",
 		position: "President"
 	}, {
-		name: specialify("Thomas") + " Hobohm",
-		position: "Hackathon Coordinator"
+		name: specialify("Ryan") + " Chhong",
+		position: "Competitions Coordinator"
 	}, {
-		name: specialify("Justin") + " Wei",
-		position: "Hackathon Coach"
+		name: specialify("Samuel") + " Liu",
+		position: "Volunteering Coordinator"
 	}, {
-		name: specialify("Andrew") + " Li",
-		position: "Beginner Competitions Coach"
-	}, {
-		name: specialify("Garrett") + " Gu",
-		position: "Intermediate Competitions Coach"
-	}, {
-		name: specialify("Karthik") + " Nair",
-		position: "Advanced Competitions Coach"
+		name: specialify("Justin") + " Cho",
+		position: "Publicist/Graphic Designer"
 	}],
 	competitions: "Competition schedule coming soon!",
 	links: "Nothing here... yet!",
@@ -183,7 +177,7 @@ $(function() {
 			[["contact"], lambdify('contact')],
 			[["clear", "cls"], function() { jqconsole.Clear(); return '\r'; }],
 			[["fb", "facebook"], function() {
-				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2017";
+				window.location.href = "https://www.facebook.com/groups/TAMSCompSci2018";
 				return '\r';
 			}],
 			[["tilt"], function() {
